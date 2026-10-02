@@ -1,0 +1,116 @@
+/* Ubuntu Rising Foundation - custom additions on top of the base template */
+
+.slider-bg1 { background-image: url(../img/hero/h1_hero1.png); }
+.slider-bg2 { background-image: url(../img/hero/h1_hero2.png); }
+.slider-bg3 { background-image: url(../img/hero/h1_hero3.png); }
+.slider-bg1, .slider-bg2, .slider-bg3 {
+    background-size: cover; background-position: center center; background-repeat: no-repeat;
+}
+
+/* --- impact counters ---------------------------------------------------- */
+.impact-area { background: #0f3b2e; padding: 60px 0 30px; }
+.impact-area .single-impact { margin-bottom: 30px; }
+.impact-area .single-impact span {
+    display: block; font-size: 42px; font-weight: 700; color: #6fd66c; line-height: 1.1;
+}
+.impact-area .single-impact p { color: #e4f3ec; margin: 6px 0 0; font-size: 15px; }
+
+/* --- ways to give / programme cards ------------------------------------- */
+.single-way {
+    background: #fff; border: 1px solid #eef2f0; border-radius: 10px; padding: 38px 30px;
+    height: 100%; transition: .3s; box-shadow: 0 6px 24px rgba(16, 40, 93, .04);
+}
+.single-way:hover { transform: translateY(-6px); box-shadow: 0 14px 34px rgba(16, 40, 93, .1); }
+.single-way .way-icon {
+    width: 62px; height: 62px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; background: #eafaf2; margin-bottom: 22px;
+}
+.single-way .way-icon i { color: #09cc7f; font-size: 24px; }
+.single-way h4 { font-size: 21px; font-weight: 600; margin-bottom: 12px; }
+.single-way p { font-size: 15px; line-height: 27px; }
+.way-link { color: #09cc7f !important; font-weight: 600; font-size: 14px; }
+.way-link i { font-size: 11px; margin-left: 6px; }
+.way-link:hover { color: #0f3b2e !important; }
+
+.single-programme {
+    background: #fff; border: 1px solid #eef2f0; border-radius: 10px; overflow: hidden; height: 100%;
+    transition: .3s;
+}
+.single-programme:hover { box-shadow: 0 14px 34px rgba(16, 40, 93, .1); }
+.single-programme img { width: 100%; height: 210px; object-fit: cover; }
+.single-programme .programme-cap { padding: 28px 26px 32px; }
+.single-programme h3 { font-size: 21px; font-weight: 600; margin-bottom: 12px; }
+.single-programme p { font-size: 15px; line-height: 27px; }
+
+/* --- values, steps, team ------------------------------------------------ */
+.single-value { border-left: 3px solid #09cc7f; padding: 6px 0 6px 22px; }
+.single-value h4 { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+.single-value p { font-size: 15px; line-height: 27px; }
+
+.single-step { background: #fff; border-radius: 10px; padding: 32px 26px; height: 100%; }
+.single-step span { font-size: 30px; font-weight: 700; color: #cfeede; display: block; margin-bottom: 8px; }
+.single-step h4 { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+.single-step p { font-size: 15px; line-height: 26px; }
+
+.single-team img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin-bottom: 18px; }
+.single-team h4 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+.single-team p { font-size: 14px; color: #6b7a74; margin: 0; }
+
+.tick-list li {
+    position: relative; padding-left: 28px; margin-bottom: 12px; color: #10285d;
+    font-size: 15px; line-height: 26px;
+}
+.tick-list li::before {
+    content: "\2713"; position: absolute; left: 0; top: 0; color: #09cc7f; font-weight: 700;
+}
+
+/* --- partner strip ------------------------------------------------------ */
+.partner-strip { background: #f5f9f7; padding: 50px 0; }
+.partner-strip > .container > p { color: #6b7a74; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+.partner-list {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 38px; margin-top: 18px;
+}
+.partner-list li {
+    font-weight: 600; color: #1d3b2a; opacity: .65; font-size: 17px; letter-spacing: .3px;
+}
+
+/* --- donate band -------------------------------------------------------- */
+.donate-band { background: linear-gradient(to right, #46C0BE, #6DD56F); padding: 60px 0; }
+.donate-band h2 { color: #fff; font-size: 30px; margin-bottom: 8px; }
+.donate-band p { color: #f2fff8; margin: 0; }
+.donate-band .btn { background: #fff; background-image: none; color: #0f3b2e; font-weight: 600; }
+@media (max-width: 991px) { .donate-band .text-lg-right { margin-top: 24px; } }
+
+/* --- project cards ------------------------------------------------------ */
+.cases-img { position: relative; }
+.case-status {
+    position: absolute; top: 14px; left: 14px; background: #09cc7f; color: #fff;
+    font-size: 12px; padding: 5px 12px; border-radius: 20px; letter-spacing: .4px;
+}
+.case-loc { font-size: 13px; color: #6b7a74; display: block; margin-bottom: 8px; }
+.case-loc i { color: #09cc7f; margin-right: 5px; }
+
+/* --- forms -------------------------------------------------------------- */
+.give-toggle { display: inline-flex; border: 1px solid #d9e6df; border-radius: 30px; overflow: hidden; }
+.give-tab {
+    border: 0; background: #fff; padding: 12px 28px; font-size: 15px; color: #10285d; cursor: pointer;
+}
+.give-tab.active { background: #09cc7f; color: #fff; }
+.amount-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.amount-option {
+    border: 1px solid #d9e6df; background: #fff; border-radius: 8px; padding: 14px 22px;
+    font-size: 16px; color: #10285d; cursor: pointer; transition: .2s;
+}
+.amount-option:hover { border-color: #09cc7f; }
+.amount-option.active { background: #09cc7f; border-color: #09cc7f; color: #fff; }
+.donate-form select.form-control, .contact_form select.form-control { height: 50px; }
+.form-check-line label { font-size: 14px; color: #10285d; }
+.form-check-line input { margin-right: 8px; }
+
+.give-card { background: #f5f9f7; border-radius: 10px; padding: 32px 28px; }
+.give-card h4 { font-size: 19px; font-weight: 600; margin-bottom: 16px; }
+.give-card p { font-size: 15px; line-height: 26px; }
+.give-card .small-note { font-size: 13px; color: #6b7a74; line-height: 23px; }
+
+.about-story p { font-size: 16px; line-height: 30px; }
+.pt-0 { padding-top: 0 !important; }
