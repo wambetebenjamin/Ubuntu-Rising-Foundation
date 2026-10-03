@@ -2,10 +2,9 @@
 """
 Static site generator for the Ubuntu Rising Foundation website.
 
-The markup, CSS, JS and component library come from the original Colorlib
-"Environmental Organization" template that was supplied as a zip. This script
-assembles the pages so the shared chrome (head, header, footer, scripts) only
-has to be maintained in one place. Run:
+The markup, CSS, JS and component library come from the HTML template that was
+supplied as a zip. This script assembles the pages so the shared chrome (head,
+header, footer, scripts) only has to be maintained in one place. Run:
 
     python3 tools/build_site.py
 
@@ -24,7 +23,7 @@ SITE = {
     "email": "hello@ubunturising.org",
     "partnerships_email": "partnerships@ubunturising.org",
     # WhatsApp is the only telephone route exposed on the site. The number
-    # itself is never rendered as text — only as a wa.me deep link.
+    # itself is never rendered as text, only as a wa.me deep link.
     "wa": "254112272061",
     "wa_link": "https://wa.me/254112272061",
     "wa_link_donate": "https://wa.me/254112272061?text=Hello%20Ubuntu%20Rising%2C%20I%27d%20like%20to%20make%20a%20donation.",
@@ -97,22 +96,7 @@ HEAD = """<!doctype html>
     <!-- CSS here -->
     <link rel="preload" href="assets/fonts/webfonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/webfonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/urf-fonts.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/slicknav.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/progressbar_barfiller.css">
-    <link rel="stylesheet" href="assets/css/gijgo.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/animated-headline.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/urf.css">
+    <link rel="stylesheet" href="assets/css/bundle.min.css?v={asset_v}">
 </head>
 
 <body>
@@ -289,30 +273,7 @@ FOOTER = """    </main>
     </div>
 
     <!-- JS here -->
-    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/jquery.slicknav.min.js"></script>
-    <script src="./assets/js/owl.carousel.min.js"></script>
-    <script src="./assets/js/slick.min.js"></script>
-    <script src="./assets/js/wow.min.js"></script>
-    <script src="./assets/js/animated.headline.js"></script>
-    <script src="./assets/js/jquery.magnific-popup.js"></script>
-    <script src="./assets/js/jquery.nice-select.min.js"></script>
-    <script src="./assets/js/jquery.sticky.js"></script>
-    <script src="./assets/js/jquery.barfiller.js"></script>
-    <script src="./assets/js/jquery.counterup.min.js"></script>
-    <script src="./assets/js/waypoints.min.js"></script>
-    <script src="./assets/js/hover-direction-snake.min.js"></script>
-    <script src="./assets/js/contact.js"></script>
-    <script src="./assets/js/jquery.form.js"></script>
-    <script src="./assets/js/jquery.validate.min.js"></script>
-    <script src="./assets/js/mail-script.js"></script>
-    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="./assets/js/plugins.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/urf.js"></script>
+    <script src="assets/js/bundle.min.js?v={asset_v}" defer></script>
 </body>
 
 </html>
@@ -371,9 +332,13 @@ CTA_BAND = """        <!-- CTA band -->
 """
 
 
+ASSET_V = "1"
+
+
 def write(path, title, description, active, body):
     html = (
         HEAD.format(
+            asset_v=ASSET_V,
             title=title,
             description=description,
             nav=nav_html(active),
@@ -384,6 +349,7 @@ def write(path, title, description, active, body):
         )
         + body
         + FOOTER.format(
+            asset_v=ASSET_V,
             email=SITE["email"],
             address=SITE["address"],
             po=SITE["po"],
@@ -391,6 +357,73 @@ def write(path, title, description, active, body):
             reg=SITE["reg"],
         )
     )
+    html = lazyload_images(html)
     with open(os.path.join(ROOT, path), "w", encoding="utf-8") as fh:
         fh.write(html)
     print("wrote", path)
+
+
+def lazyload_images(html):
+    """Defer off-screen photography.
+
+    Every <img> gets loading="lazy" and decoding="async" except the logo, which
+    sits in the header and is needed for the first paint. Saves ~10 blocking
+    image requests per page.
+    """
+
+    def repl(match):
+        tag = match.group(0)
+        if "loading=" in tag or "/logo/" in tag:
+            return tag
+        return tag[:-1].rstrip() + ' loading="lazy" decoding="async">'
+
+    return re.sub(r"<img\b[^>]*>", repl, html)
+
+
+# ---------------------------------------------------------------------------
+# Asset bundling
+#
+# The template shipped 16 stylesheets and 24 scripts, so every page cost ~40
+# round trips before it could render. They are concatenated here, in their
+# original order, into one CSS and one JS file. Order is preserved exactly,
+# so cascade and jQuery plugin registration behave as before.
+# ---------------------------------------------------------------------------
+
+CSS_FILES = ['assets/css/urf-fonts.css', 'assets/css/bootstrap.min.css', 'assets/css/owl.carousel.min.css', 'assets/css/slicknav.css', 'assets/css/flaticon.css', 'assets/css/progressbar_barfiller.css', 'assets/css/gijgo.css', 'assets/css/animate.min.css', 'assets/css/animated-headline.css', 'assets/css/magnific-popup.css', 'assets/css/fontawesome-all.min.css', 'assets/css/themify-icons.css', 'assets/css/slick.css', 'assets/css/nice-select.css', 'assets/css/style.css', 'assets/css/urf.css']
+
+JS_FILES = ['assets/js/vendor/modernizr-3.5.0.min.js', 'assets/js/vendor/jquery-1.12.4.min.js', 'assets/js/popper.min.js', 'assets/js/bootstrap.min.js', 'assets/js/jquery.slicknav.min.js', 'assets/js/owl.carousel.min.js', 'assets/js/slick.min.js', 'assets/js/wow.min.js', 'assets/js/animated.headline.js', 'assets/js/jquery.magnific-popup.js', 'assets/js/jquery.nice-select.min.js', 'assets/js/jquery.sticky.js', 'assets/js/jquery.barfiller.js', 'assets/js/jquery.counterup.min.js', 'assets/js/waypoints.min.js', 'assets/js/hover-direction-snake.min.js', 'assets/js/contact.js', 'assets/js/jquery.form.js', 'assets/js/jquery.validate.min.js', 'assets/js/mail-script.js', 'assets/js/jquery.ajaxchimp.min.js', 'assets/js/plugins.js', 'assets/js/main.js', 'assets/js/urf.js']
+
+
+def _minify_css(text):
+    text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)       # comments
+    text = re.sub(r"\s+", " ", text)                         # runs of whitespace
+    text = re.sub(r"\s*([{}:;,>~])\s*", r"\1", text)         # space around punctuation
+    text = text.replace(";}", "}")
+    return text.strip()
+
+
+def build_bundles(root):
+    import hashlib, os
+
+    css_out = []
+    for rel in CSS_FILES:
+        with open(os.path.join(root, rel), encoding="utf-8", errors="replace") as fh:
+            css_out.append(_minify_css(fh.read()))
+    css = "\n".join(css_out)
+    with open(os.path.join(root, "assets/css/bundle.min.css"), "w", encoding="utf-8") as fh:
+        fh.write(css)
+
+    js_out = []
+    for rel in JS_FILES:
+        with open(os.path.join(root, rel), encoding="utf-8", errors="replace") as fh:
+            # a trailing semicolon and newline keeps files that end mid-expression
+            # or without a terminator from swallowing the next file
+            js_out.append(fh.read().rstrip() + "\n;\n")
+    js = "".join(js_out)
+    with open(os.path.join(root, "assets/js/bundle.min.js"), "w", encoding="utf-8") as fh:
+        fh.write(js)
+
+    digest = hashlib.sha1((css + js).encode("utf-8")).hexdigest()[:10]
+    print("bundled %d css + %d js -> %.0f KB css, %.0f KB js (v=%s)"
+          % (len(CSS_FILES), len(JS_FILES), len(css) / 1024, len(js) / 1024, digest))
+    return digest

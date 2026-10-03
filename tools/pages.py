@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Page bodies for the Ubuntu Rising Foundation website."""
 
+import build_site
 from build_site import write, bradcam, CTA_BAND, SITE
 
 # ---------------------------------------------------------------------------
@@ -30,7 +31,7 @@ NEWSLETTER = """        <!-- Newsletter -->
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-5">
                         <h3>Quarterly updates from the field</h3>
-                        <p>Clear, concise reporting from the communities we work with &mdash; four emails a year.</p>
+                        <p>Clear, concise reporting from the communities we work with, four emails a year.</p>
                     </div>
                     <div class="col-xl-7 col-lg-7">
                         <form class="urf-newsletter-form" action="#" method="post">
@@ -138,7 +139,7 @@ HOME = """        <!-- Hero slider -->
                                     <span class="urf-eyebrow" data-animation="fadeInUp" data-delay=".1s">Volunteer &amp; partner with us</span>
                                     <h1 data-animation="fadeInUp" data-delay=".2s">Put your skills<br>to work</h1>
                                     <p data-animation="fadeInUp" data-delay=".4s">More than 1,150 teachers, engineers, accountants, designers and
-                                        clinicians give their time each year &mdash; most of them remotely, from wherever they live.</p>
+                                        clinicians give their time each year, most of them remotely, from wherever they live.</p>
                                     <div class="hero__btn">
                                         <a href="volunteer.html" class="hero-btn mb-10" data-animation="fadeInUp" data-delay=".8s">Become a volunteer</a>
                                         <a href="partners.html" class="hero-btn hero-btn-ghost mb-10" data-animation="fadeInUp" data-delay="1s">Partner with us</a>
@@ -164,7 +165,7 @@ HOME = """        <!-- Hero slider -->
                         <a class="urf-door" href="donate.html">
                             <i class="ti-heart"></i>
                             <h4>Give</h4>
-                            <p>Give once or monthly by M-PESA, card or bank transfer &mdash; in KES, USD, GBP or EUR.</p>
+                            <p>Give once or monthly by M-PESA, card or bank transfer, in KES, USD, GBP or EUR.</p>
                             <span class="urf-link-arrow">Donate now <i class="ti-arrow-right"></i></span>
                         </a>
                     </div>
@@ -230,7 +231,7 @@ HOME = """        <!-- Hero slider -->
                             </div>
                             <div class="cat-cap">
                                 <h5><a href="programmes.html#education">Education &amp; Scholarships</a></h5>
-                                <p>Fees, uniforms, sanitary care and mentoring for 18,400 learners &mdash; and salaries for
+                                <p>Fees, uniforms, sanitary care and mentoring for 18,400 learners, and salaries for
                                     112 community teachers.</p>
                             </div>
                         </div>
@@ -517,7 +518,7 @@ ABOUT = bradcam("About Ubuntu Rising", "About") + """
                         </div>
                     </div>
                     <div class="col-lg-7">
-                        <p class="urf-lead">&ldquo;Umuntu ngumuntu ngabantu&rdquo; &mdash; a person is a person through
+                        <p class="urf-lead">&ldquo;Umuntu ngumuntu ngabantu&rdquo;: a person is a person through
                             other people. Ubuntu Rising Foundation was established on a simple principle: the
                             communities affected by a programme should be the ones who design it.</p>
                         <p>We began with one bursary fund for 24 girls. Thirteen years later we work in 42 communities
@@ -742,7 +743,7 @@ PROGRAMMES = bradcam("Our Programmes", "Programmes", "bradcam2") + """
     """<p>Village savings and loan associations, twelve-week business training, and start-up grants for members ready to
         trade full time. Groups are run entirely by their members; our staff train the first cohort and then step back.</p>
        <p>Across 190 groups in Kenya, Uganda and Tanzania, members have saved the equivalent of KES 61 million of their
-        own money &mdash; roughly four times what we have put in.</p>""",
+        own money, roughly four times what we have put in.</p>""",
     ["Start-up grant for a graduating trader: KES 32,000",
      "Training one savings group of 25 women: KES 95,000",
      "190 active savings groups, 2,300 women trading",
@@ -880,21 +881,21 @@ PROJECTS = bradcam("Current Projects", "Our Work", "bradcam3") + """
                         <div class="urf-region">
                             <h4>Uganda</h4>
                             <span>8 communities</span>
-                            <p>Mbale, Soroti, Gulu &mdash; savings groups, vocational training and school water</p>
+                            <p>Mbale, Soroti and Gulu: savings groups, vocational training and school water</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="urf-region">
                             <h4>Tanzania</h4>
                             <span>5 communities</span>
-                            <p>Mwanza and Shinyanga &mdash; mobile health routes and women&rsquo;s livelihoods</p>
+                            <p>Mwanza and Shinyanga: mobile health routes and women&rsquo;s livelihoods</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="urf-region">
                             <h4>Rwanda</h4>
                             <span>3 communities</span>
-                            <p>Musanze &mdash; youth climate fellowships and hillside soil restoration</p>
+                            <p>Musanze: youth climate fellowships and hillside soil restoration</p>
                         </div>
                     </div>
                 </div>
@@ -982,7 +983,7 @@ IMPACT = bradcam("Impact &amp; Transparency", "Impact") + """
                                 <li><a href="#"><i class="ti-file"></i> Unit Cost Schedule 2026 <span>PDF &middot; 290 KB</span></a></li>
                                 <li><a href="#"><i class="ti-file"></i> Safeguarding Policy <span>PDF &middot; 410 KB</span></a></li>
                                 <li><a href="#"><i class="ti-file"></i> Anti-Fraud &amp; Whistleblowing Policy <span>PDF &middot; 265 KB</span></a></li>
-                                <li><a href="#"><i class="ti-file"></i> Five-Year Strategy 2026&ndash;2030 <span>PDF &middot; 2.8 MB</span></a></li>
+                                <li><a href="#"><i class="ti-file"></i> Five-Year Strategy 2026-2030 <span>PDF &middot; 2.8 MB</span></a></li>
                             </ul>
                             <div class="urf-reg-box">
                                 <h4>Registration</h4>
@@ -1139,7 +1140,7 @@ DONATE = bradcam("Make a Donation", "Donate", "bradcam2") + """
 
                                 <div class="urf-checkline">
                                     <input type="checkbox" id="giftaid" name="giftaid">
-                                    <label for="giftaid">I am a UK taxpayer &mdash; add Gift Aid and make my gift worth 25% more.</label>
+                                    <label for="giftaid">I am a UK taxpayer. Add Gift Aid and make my gift worth 25% more.</label>
                                 </div>
 
                                 <button type="submit" class="btn urf-btn-solid urf-btn-block">
@@ -1183,12 +1184,12 @@ DONATE = bradcam("Make a Donation", "Donate", "bradcam2") + """
                         <div class="urf-side-card urf-side-card-dark">
                             <h3>What your money buys</h3>
                             <ul class="urf-ticks urf-ticks-light">
-                                <li>KES 2,500 &mdash; one term of school for a girl</li>
-                                <li>KES 7,500 &mdash; a health volunteer&rsquo;s kit and training</li>
-                                <li>KES 32,000 &mdash; a start-up grant for a woman trader</li>
-                                <li>KES 48,000 &mdash; a full year of secondary school</li>
-                                <li>KES 180,000 &mdash; a six-month youth climate fellowship</li>
-                                <li>KES 1.8M &mdash; a solar borehole, handed over and maintained</li>
+                                <li>KES 2,500: one term of school for a girl</li>
+                                <li>KES 7,500: a health volunteer&rsquo;s kit and training</li>
+                                <li>KES 32,000: a start-up grant for a woman trader</li>
+                                <li>KES 48,000: a full year of secondary school</li>
+                                <li>KES 180,000: a six-month youth climate fellowship</li>
+                                <li>KES 1.8M: a solar borehole, handed over and maintained</li>
                             </ul>
                         </div>
                     </div>
@@ -1215,7 +1216,7 @@ VOLUNTEER = bradcam("Volunteer With Us", "Volunteer", "bradcam3") + """
                     </div>
                     <div class="col-lg-7">
                         <p class="urf-lead">We do not run volunteer tourism. What we need is skilled professionals giving a
-                            few focused hours a month &mdash; bookkeeping, translation, grant writing, hydrology review,
+                            few focused hours a month: bookkeeping, translation, grant writing, hydrology review,
                             teacher training and design.</p>
                         <p>If you are in East Africa, we also run community roles: mentoring scholars, supporting savings
                             groups and helping at mobile clinics. Field placements exist but are limited to professionals
@@ -1266,12 +1267,12 @@ VOLUNTEER = bradcam("Volunteer With Us", "Volunteer", "bradcam3") + """
                             <span class="urf-pill">Remote &middot; project based</span>
                             <h4>Hydrology reviewer</h4>
                             <p>Second-opinion review of borehole siting surveys before we commit drilling funds.</p>
-                            <small><i class="ti-time"></i> 2&ndash;3 reviews per year</small>
+                            <small><i class="ti-time"></i> 2-3 reviews per year</small>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="urf-role">
-                            <span class="urf-pill">Kakamega &middot; 8&ndash;12 weeks</span>
+                            <span class="urf-pill">Kakamega &middot; 8-12 weeks</span>
                             <h4>Teacher trainer (field)</h4>
                             <p>In-service training for 112 community teachers. Qualified secondary teachers only.</p>
                             <small><i class="ti-time"></i> Travel and accommodation covered</small>
@@ -1330,7 +1331,7 @@ VOLUNTEER = bradcam("Volunteer With Us", "Volunteer", "bradcam3") + """
                                                 <option>Hydrology reviewer</option>
                                                 <option>Teacher trainer (field)</option>
                                                 <option>Translator</option>
-                                                <option>Something else &mdash; I&rsquo;ll explain below</option>
+                                                <option>Something else, I&rsquo;ll explain below</option>
                                             </select>
                                         </div>
                                     </div>
@@ -1338,9 +1339,9 @@ VOLUNTEER = bradcam("Volunteer With Us", "Volunteer", "bradcam3") + """
                                         <div class="urf-field">
                                             <label for="v-hours">Hours you can give each month</label>
                                             <select id="v-hours" name="hours" class="urf-select">
-                                                <option>1&ndash;4 hours</option>
-                                                <option>5&ndash;10 hours</option>
-                                                <option>10&ndash;20 hours</option>
+                                                <option>1-4 hours</option>
+                                                <option>5-10 hours</option>
+                                                <option>10-20 hours</option>
                                                 <option>Full-time field placement</option>
                                             </select>
                                         </div>
@@ -1375,10 +1376,10 @@ VOLUNTEER = bradcam("Volunteer With Us", "Volunteer", "bradcam3") + """
                         <div class="urf-side-card">
                             <h3>What happens next</h3>
                             <ol class="urf-steps">
-                                <li><strong>Within 5 days</strong> &mdash; a programme coordinator emails you.</li>
-                                <li><strong>Week 2</strong> &mdash; a 30-minute video call about fit and availability.</li>
-                                <li><strong>Week 3</strong> &mdash; two references and a safeguarding check.</li>
-                                <li><strong>Week 4</strong> &mdash; two hours of online induction and you start.</li>
+                                <li><strong>Within 5 days</strong>: a programme coordinator emails you.</li>
+                                <li><strong>Week 2</strong>: a 30-minute video call about fit and availability.</li>
+                                <li><strong>Week 3</strong>: two references and a safeguarding check.</li>
+                                <li><strong>Week 4</strong>: two hours of online induction and you start.</li>
                             </ol>
                         </div>
                         <div class="urf-side-card urf-side-card-dark">
@@ -1460,7 +1461,7 @@ PARTNERS = bradcam("Corporate Partnerships", "Partners") + """
                             <h4>Skills-based volunteering</h4>
                             <span class="urf-tier-price">In-kind</span>
                             <ul class="urf-ticks">
-                                <li>Teams of 5&ndash;20 on defined projects</li>
+                                <li>Teams of 5-20 on defined projects</li>
                                 <li>Finance, legal, engineering, digital</li>
                                 <li>Scoped by our country leads</li>
                                 <li>Safeguarding training included</li>
@@ -1538,8 +1539,8 @@ PARTNERS = bradcam("Corporate Partnerships", "Partners") + """
                                             <label for="p-budget">Indicative annual budget</label>
                                             <select id="p-budget" name="budget" class="urf-select">
                                                 <option>Under KES 1M</option>
-                                                <option>KES 1M &ndash; 5M</option>
-                                                <option>KES 5M &ndash; 20M</option>
+                                                <option>KES 1M-5M</option>
+                                                <option>KES 5M-20M</option>
                                                 <option>Over KES 20M</option>
                                                 <option>In-kind only</option>
                                             </select>
@@ -1581,14 +1582,14 @@ PARTNERS = bradcam("Corporate Partnerships", "Partners") + """
                                 <span class="contact-info__icon"><i class="ti-comment-alt"></i></span>
                                 <div class="media-body">
                                     <h3><a href="{wa_link_partner}" target="_blank" rel="noopener">Chat on WhatsApp</a></h3>
-                                    <p>Mon&ndash;Fri, 8.30am&ndash;5pm EAT</p>
+                                    <p>Mon-Fri, 8.30am-5pm EAT</p>
                                 </div>
                             </div>
                         </div>
                         <div class="urf-side-card urf-side-card-dark">
                             <h3>Due diligence pack</h3>
                             <p>Constitution, NGO Board certificate, audited accounts, safeguarding and anti-fraud
-                                policies, MEL framework and two referee contacts &mdash; sent on request, same day.</p>
+                                policies, MEL framework and two referee contacts, sent on request, same day.</p>
                             <a href="impact.html" class="btn urf-btn-solid">See our published accounts <i class="ti-arrow-right"></i></a>
                         </div>
                     </div>
@@ -1789,7 +1790,7 @@ BLOG_DETAILS = bradcam("Story", "News", "bradcam2") + """
                                     had not changed. What had changed was that the vehicle had arrived fourteen times.</p>
                                 <blockquote class="blockquote">
                                     <p class="mb-0">Reliability, not ambition, is what builds trust in a community
-                                        health service &mdash; and it is the hardest thing to sustain.</p>
+                                        health service, and it is the hardest thing to sustain.</p>
                                     <footer class="blockquote-footer">Dr. Faith Chebet</footer>
                                 </blockquote>
                                 <p>Across the eleven routes we now run in Kenya, Tanzania and Uganda, we saw 9,700
@@ -1888,7 +1889,7 @@ BLOG_DETAILS = bradcam("Story", "News", "bradcam2") + """
                                         <div class="thumb"><img src="assets/img/post/post_7.jpg" alt=""></div>
                                         <div class="desc">
                                             <p class="comment">Our company funds one route in Shinyanga. The quarterly
-                                                reporting is genuinely usable &mdash; it goes straight into our board pack.</p>
+                                                reporting is genuinely usable. It goes straight into our board pack.</p>
                                             <div class="d-flex justify-content-between">
                                                 <div class="d-flex align-items-center">
                                                     <h5><a href="#">Aisha Rahman</a></h5>
@@ -1963,7 +1964,7 @@ CONTACT = bradcam("Contact Us", "Contact", "bradcam3") + """
                         <h2 class="contact-title">Get in touch</h2>
                         <p class="mb-40">For media, general questions or anything that does not fit a form below.
                             Corporate partners should use the <a href="partners.html">partnerships form</a>, and
-                            volunteers the <a href="volunteer.html">volunteer form</a> &mdash; it reaches the right
+                            volunteers the <a href="volunteer.html">volunteer form</a>, it reaches the right
                             person faster.</p>
                         <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                             <div class="row">
@@ -2006,7 +2007,7 @@ CONTACT = bradcam("Contact Us", "Contact", "bradcam3") + """
                             <span class="contact-info__icon"><i class="ti-comment-alt"></i></span>
                             <div class="media-body">
                                 <h3><a href="{wa_link}" target="_blank" rel="noopener">Chat on WhatsApp</a></h3>
-                                <p>Fastest reply, Mon to Fri 8.30am&ndash;5pm EAT</p>
+                                <p>Fastest reply, Mon to Fri 8.30am-5pm EAT</p>
                             </div>
                         </div>
                         <div class="media contact-info">
@@ -2053,7 +2054,7 @@ PAGES = [
      "about.html", ABOUT),
     ("programmes.html", "Our Programmes | Ubuntu Rising Foundation",
      "Education and scholarships, clean water and sanitation, women's economic empowerment, community health and youth "
-     "climate action across East Africa &mdash; with published unit costs.",
+     "climate action across East Africa, with published unit costs.",
      "programmes.html", PROGRAMMES),
     ("projects.html", "Current Projects | Ubuntu Rising Foundation",
      "Six open appeals in Kenya, Uganda, Tanzania and Rwanda, each with a published budget, a named field lead and a "
@@ -2068,7 +2069,7 @@ PAGES = [
      "KES 1.8M builds a solar borehole.",
      "donate.html", DONATE),
     ("volunteer.html", "Volunteer | Ubuntu Rising Foundation",
-     "1,150 people volunteer with Ubuntu Rising &mdash; most of them remotely, four hours a month. See open roles and "
+     "1,150 people volunteer with Ubuntu Rising, most of them remotely, four hours a month. See open roles and "
      "sign up.",
      "volunteer.html", VOLUNTEER),
     ("partners.html", "Corporate Partnerships | Ubuntu Rising Foundation",
@@ -2076,7 +2077,7 @@ PAGES = [
      "quarterly reporting and audited figures.",
      "partners.html", PARTNERS),
     ("blog.html", "News & Stories | Ubuntu Rising Foundation",
-     "Reporting from our teams in Kenya, Uganda, Tanzania and Rwanda &mdash; including the projects that did not go "
+     "Reporting from our teams in Kenya, Uganda, Tanzania and Rwanda, including the projects that did not go "
      "to plan.",
      "blog.html", BLOG),
     ("blog_details.html", "What eleven mobile clinics taught us about trust | Ubuntu Rising Foundation",
@@ -2092,6 +2093,9 @@ TOKENS = dict(SITE)
 
 
 def main():
+    # concatenate the stylesheets/scripts first so the cache-busting token in
+    # every page's <link>/<script> matches the bundles we just wrote
+    build_site.ASSET_V = build_site.build_bundles(build_site.ROOT)
     for path, title, desc, active, body in PAGES:
         for key, value in TOKENS.items():
             body = body.replace("{" + key + "}", value)

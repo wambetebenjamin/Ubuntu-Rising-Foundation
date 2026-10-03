@@ -3,14 +3,14 @@
    -------------------------------------------------------------------------
    The template originally pulled Montserrat from Google Fonts with an @import
    at the top of style.css. That is a render-blocking third-party request that
-   fails completely on networks where fonts.googleapis.com is unreachable — and
+   fails completely on networks where fonts.googleapis.com is unreachable, and
    when it fails, every heading silently drops to the browser's default serif.
 
    Both families are now served from assets/fonts/webfonts (latin subset,
    woff2, ~176 KB total). No external requests, no CDN dependency.
    ========================================================================= */
 
-/* ---------- Plus Jakarta Sans — display / headings ---------------------- */
+/* ---------- Plus Jakarta Sans, display / headings ---------------------- */
 
 @font-face {
     font-family: 'Plus Jakarta Sans';
@@ -41,7 +41,7 @@
     src: url('../fonts/webfonts/plus-jakarta-sans-latin-800-normal.woff2') format('woff2');
 }
 
-/* ---------- Montserrat — body ------------------------------------------- */
+/* ---------- Montserrat, body ------------------------------------------- */
 
 @font-face {
     font-family: 'Montserrat';

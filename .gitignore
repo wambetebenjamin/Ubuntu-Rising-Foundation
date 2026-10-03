@@ -6,3 +6,5 @@ node_modules/
 .venv/
 .vscode/
 .idea/
+
+# generated bundles are rebuilt by tools/pages.py

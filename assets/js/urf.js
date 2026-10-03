@@ -1,4 +1,4 @@
-/* Ubuntu Rising Foundation — small front-end behaviours
+/* Ubuntu Rising Foundation, small front-end behaviours
    (donation form interactions and impact counters). */
 (function ($) {
     'use strict';

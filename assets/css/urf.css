@@ -1,5 +1,5 @@
 /* =========================================================================
-   Ubuntu Rising Foundation — brand layer
+   Ubuntu Rising Foundation, brand layer
    Sits on top of the original template's style.css. Palette, typography and
    component language are inherited from the template; this file only adds the
    pieces the foundation's content needs and re-skins a few template defaults.
@@ -9,14 +9,15 @@
     --urf-green: #09cc7f;
     --urf-green-dark: #06a768;
     --urf-teal: #46C0BE;
-    --urf-leaf: #6DD56F;
+    --urf-leaf: #6fd66c;
     --urf-navy: #10285d;
-    --urf-navy-deep: #0a1b3f;
+    --urf-navy-deep: #072366;
     --urf-ink: #425140;
-    --urf-body: #5a6b86;
-    --urf-mint: #EEFFFA;
-    --urf-soft: #f5faf8;
-    --urf-line: #e6ece9;
+    --urf-body: #10285d;
+    --urf-mint: #f9f9ff;
+    --urf-soft: #f7f7fd;
+    --urf-line: #eceff8;
+    --urf-muted: #828bb2;
     --urf-grad: linear-gradient(to left, #46C0BE, #6DD56F, #46C0BE);
     /* Deep fallback stacks: if a webfont ever fails to load the page still gets
        a decent geometric/humanist sans rather than the browser default. */
@@ -25,7 +26,7 @@
     --urf-body-font: 'Montserrat', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Display typeface for every heading — tighter, heavier and more legible at
+/* Display typeface for every heading, tighter, heavier and more legible at
    large sizes than Montserrat, which stays as the body face. */
 h1, h2, h3, h4, h5, h6,
 .hero__caption h1, .section-tittle h2, .bradcam_text h3,
@@ -582,7 +583,7 @@ img { max-width: 100%; height: auto; }
 .slicknav_nav a:hover { background: var(--urf-mint); color: var(--urf-green); border-radius: 4px; }
 
 /* =========================================================================
-   Overrides — template rules that out-specify the brand layer above.
+   Overrides, template rules that out-specify the brand layer above.
    Kept together at the end so the reason for each is obvious.
    ========================================================================= */
 
@@ -812,7 +813,7 @@ img { max-width: 100%; height: auto; }
     .urf-kb { transform: scale(1.03); }
 }
 
-/* Leadership monograms — used instead of cropped group photography until real
+/* Leadership monograms, used instead of cropped group photography until real
    headshots are supplied. */
 .urf-person-avatar {
     width: 92px; height: 92px; border-radius: 50%; margin-bottom: 20px;
