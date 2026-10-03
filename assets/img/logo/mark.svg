@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="52" height="52" role="img" aria-label="Ubuntu Rising Foundation mark">
+  <defs>
+    <linearGradient id="urfMark" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#46C0BE"/>
+      <stop offset="55%" stop-color="#09cc7f"/>
+      <stop offset="100%" stop-color="#6DD56F"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(2,3)">
+    <path d="M2 40 A22 22 0 0 1 46 40" fill="none" stroke="url(#urfMark)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M12 40 A12 12 0 0 1 36 40 Z" fill="url(#urfMark)"/>
+    <rect x="0" y="43.5" width="48" height="3.2" rx="1.6" fill="#10285d"/>
+    <circle cx="16" cy="25" r="3" fill="#ffffff"/>
+    <circle cx="24" cy="20" r="3.6" fill="#ffffff"/>
+    <circle cx="32" cy="25" r="3" fill="#ffffff"/>
+  </g>
+</svg>
